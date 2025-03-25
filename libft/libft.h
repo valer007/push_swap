@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:37:48 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/24 17:30:47 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/25 20:28:32 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 typedef struct s_list
 {
-	int 			index;
+	int				index;
 	int				content;
 	struct s_list	*prev;
 }				t_list;
 
 void		ft_lstadd_back(t_list **lst, t_list *new);
 t_list		*ft_lstlast(t_list *lst);
-t_list		*ft_lstnew(int, int);
+t_list		*ft_lstnew(int num);
 int			ft_lstsize(t_list *lst);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_putnbr_fd(int n, int fd);

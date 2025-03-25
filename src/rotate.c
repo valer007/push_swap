@@ -1,36 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/25 20:01:59 by vmakarya          #+#    #+#             */
+/*   Updated: 2025/03/25 20:02:23 by vmakarya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include.h"
 
-static int rotate(t_list **sta) {
-	if(!*sta || !(*sta)->prev) {
-		return 0;
-	}
+static int	rotate(t_list **sta)
+{
+	t_list	*temp;
+	t_list	*current;
 
-	t_list *temp = *sta;
+	if (!*sta || !(*sta)->prev)
+		return (0);
+	temp = *sta;
 	*sta = (*sta)->prev;
-	
-	t_list* current = *sta;
+	current = *sta;
 	while (current->prev)
 		current = current->prev;
 	current->prev = temp;
 	temp->prev = NULL;
-	return 1;
+	return (1);
 }
 
-void ra(t_list **sta) {
+void	ra(t_list **sta)
+{
 	if (rotate(sta))
-	{
 		ft_printf("ra\n");
-	}
 }
 
-void rb(t_list **stb) {
+void	rb(t_list **stb)
+{
 	if (rotate(stb))
-	{
 		ft_printf("rb\n");
-	}
 }
 
-void rr(t_list **sta, t_list**stb) {
-	if(rotate(sta) && rotate(stb))
+void	rr(t_list **sta, t_list **stb)
+{
+	if (rotate(sta) && rotate(stb))
 		ft_printf("rr");
 }

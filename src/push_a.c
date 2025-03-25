@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_a.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/25 19:59:43 by vmakarya          #+#    #+#             */
+/*   Updated: 2025/03/25 20:00:38 by vmakarya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include.h"
 
-void push_a(t_list **st, int argc, char **argv) {
-	t_list *new;
-	char **str;
-	int i;
-	int j;
-	int count;
+void	push_a(t_list **st, int argc, char **argv)
+{
+	int		i;
+	int		j;
+	char	**str;
+	t_list	*new;
 
-	count = 0;
 	i = 1;
 	while (i < argc)
 	{
@@ -15,12 +26,11 @@ void push_a(t_list **st, int argc, char **argv) {
 		j = 0;
 		while (str[j])
 		{
-			new = ft_lstnew(ft_atoi(str[j]), count);
+			new = ft_lstnew(ft_atoi(str[j]));
 			ft_lstadd_back(st, new);
-			count++;
 			j++;
 		}
+		free(str);
 		i++;
 	}
-	free(str);
 }

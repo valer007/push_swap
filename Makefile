@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIRS = src libft ft_printf

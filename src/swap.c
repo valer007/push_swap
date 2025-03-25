@@ -1,29 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/25 19:53:46 by vmakarya          #+#    #+#             */
+/*   Updated: 2025/03/25 19:55:37 by vmakarya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include.h"
 
-static int swap(t_list **st){
-	if(!(*st)->prev || !(*st)) {
-		return 0;
-	}
+static int	swap(t_list **st)
+{
+	t_list	*tmp;
 
-	t_list *tmp;
-    tmp = *st;
-    *st = (*st)->prev;
-    tmp->prev = (*st)->prev;
-    (*st)->prev = tmp;
-	return 1;
+	if (!(*st) || !(*st)->prev)
+		return (0);
+	tmp = *st;
+	*st = (*st)->prev;
+	tmp->prev = (*st)->prev;
+	(*st)->prev = tmp;
+	return (1);
 }
 
-void sa(t_list **sta) {
-	if(swap(sta))
+void	sa(t_list **sta)
+{
+	if (swap(sta))
 		ft_printf("%s\n", "sa");
 }
 
-void sb(t_list **stb) {
-	if(swap(stb))
+void	sb(t_list **stb)
+{
+	if (swap(stb))
 		ft_printf("%s\n", "sb");
 }
 
-void ss(t_list **sta, t_list **stb) {
-	if(swap(sta) && swap(stb)) 
+void	ss(t_list **sta, t_list **stb)
+{
+	if (swap(sta) && swap(stb))
 		ft_printf("%s\n", "ss");
 }
