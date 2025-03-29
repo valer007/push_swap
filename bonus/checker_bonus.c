@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:04:33 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/29 22:40:43 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 00:20:19 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,34 +36,42 @@ int	check_symbols(char *str)
 	return (1);
 }
 
+static int ft_strcmp(const char *s1, const char *s2) {
+    while (*s1 && (*s1 == *s2)) {
+        s1++;
+        s2++;
+    }
+    return (unsigned char)(*s1) - (unsigned char)(*s2);
+}
+
 static int check_instr(t_list **a, t_list **b, char *str)
 {
-	if (!ft_strcmp(str, "sa\n"))
+	if (ft_strcmp(str, "sa\n") == 0)
 		return (sa(a), 1);
-	else if (!ft_strcmp(str, "sb\n"))
+	else if (ft_strcmp(str, "sb\n") == 0)
 		return (sb(b), 1);
-	else if (!ft_strcmp(str, "ss\n"))
+	else if (ft_strcmp(str, "ss\n") == 0)
 		return (ss(a, b), 1);
-	else if (!ft_strcmp(str, "ra\n"))
+	else if (ft_strcmp(str, "ra\n") == 0)
 		return (ra(a), 1);
-	else if (!ft_strcmp(str, "rb\n"))
+	else if (ft_strcmp(str, "rb\n") == 0)
 		return (rb(b), 1);
-	else if (!ft_strcmp(str, "rr\n"))
+	else if (ft_strcmp(str, "rr\n") == 0)
 		return (rr(a, b), 1);
-	else if (!ft_strcmp(str, "rra\n"))
+	else if (ft_strcmp(str, "rra\n") == 0)
 		return (rra(a), 1);
-	else if (!ft_strcmp(str, "rrb\n"))
+	else if (ft_strcmp(str, "rrb\n") == 0)
 		return (rrb(b), 1);
-	else if (!ft_strcmp(str, "rrr\n"))
+	else if (ft_strcmp(str, "rrr\n") == 0)
 		return (rrr(a, b), 1);
-	else if (!ft_strcmp(str, "pa\n"))
+	else if (ft_strcmp(str, "pa\n") == 0)
 		return (pa(a, b), 1);
-	else if (!ft_strcmp(str, "pa\n"))
+	else if (ft_strcmp(str, "pa\n") == 0)
 		return (pb(a, b), 1);
 	return (0);
 }
 
-void checker_bonus(t_list **a, t_list **b)
+int checker_bonus(t_list **a, t_list **b)
 {
 	char *str;
 	
@@ -75,7 +83,8 @@ void checker_bonus(t_list **a, t_list **b)
 		if(!check_instr(a, b, str))
 		{
 			ft_printf("Error\n");
-			exit(0);
+			return (0);
 		}
 	}
+	return (1);
 }

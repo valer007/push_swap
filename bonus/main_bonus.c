@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:34:10 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/29 19:05:14 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 00:17:23 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ void print_msg(t_list *sta, t_list *stb)
 	if (!is_sorted(sta) || stb != NULL)
 	{
 		ft_printf("KO");
-		exit(0);
 	} else {
 		ft_printf("OK");
-		exit(0);
 	}
 }
 
@@ -92,17 +90,19 @@ int	main(int	argc, char	**argv)
 	if (argc < 2 || !check_argv(argc, argv))
 	{
 		ft_printf("Error");
-		exit(0);
+		return 0;
 	}
 	sta = NULL;
 	stb = NULL;
-	if (!push_a_bonus(&sta, argc, argv) || check_dublicate(sta))
+	if (!push_a_bonus(&sta, argc, argv) || !check_dublicate(sta))
 	{
 		ft_printf("Error");
-		exit(0);
+		return 0;
 	}
-	checker_bonus(&sta, &stb);
+	if (!checker_bonus(&sta, &stb))
+		return 0;
 	print_msg(sta, stb);
 	free_stack(&sta);
 	free_stack(&stb);
+	return (0);
 }

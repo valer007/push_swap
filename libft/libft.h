@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:37:48 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/29 22:52:28 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/29 23:32:14 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void		ft_putendl_fd(char *s, int fd);
 char		**ft_split(char const *s, char c);
 void		ft_putchar_fd(char c, int fd);
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
-char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
