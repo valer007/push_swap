@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:37:48 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/25 20:28:32 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/29 22:52:28 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strdup(const char *s);
 void		*ft_calloc(size_t count, size_t size);
-int			ft_atoi(const char *str);
+long		ft_atol(const char *str);
 void		*ft_memchr(const void *s, int c, size_t n);
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
 void		ft_bzero(void *s, size_t n);

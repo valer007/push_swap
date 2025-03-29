@@ -6,16 +6,16 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:44:57 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/01/21 20:44:59 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/29 22:56:04 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	int	i;
-	int	result;
+	long	result;
 	int	sign;
 
 	i = 0;

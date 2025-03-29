@@ -6,11 +6,11 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:01:39 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/25 20:01:40 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:54:52 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include.h"
+#include "push_swap.h"
 
 static int	push(t_list **sta, t_list **stb)
 {

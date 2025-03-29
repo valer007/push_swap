@@ -6,31 +6,74 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:59:43 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/25 20:00:38 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/29 22:57:53 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include.h"
+#include "push_swap.h"
 
-void	push_a(t_list **st, int argc, char **argv)
+static int	check_zero(char *str)
 {
-	int		i;
+	int	count;
+	int	num;
+
+	num = 0;
+	count = 0;
+	while (str[count] == '0')
+		count++;
+	while (str[count] >= '0' && str[count] <= '9')
+	{
+		num++;
+		count++;
+	}
+	if (num > 10)
+		return (0);
+	return (1);
+}
+
+static int	check(long num)
+{
+	if (num > 2147483647 || num < -2147483648)
+		return (0);
+	return (1);
+}
+
+int	process_argument(t_list **st, char *arg)
+{
 	int		j;
 	char	**str;
 	t_list	*new;
 
+	str = ft_split(arg, ' ');
+	if (!str)
+		return (0);
+	j = 0;
+	while (str[j])
+	{
+		if (!check_symbols(str[j]) || !check(ft_atol(str[j]))
+			|| !check_zero(str[j]))
+			return (0);
+		new = ft_lstnew(ft_atol(str[j]));
+		ft_lstadd_back(st, new);
+		j++;
+	}
+	j = 0;
+	while (str[j])
+		free(str[j++]);
+	free(str);
+	return (1);
+}
+
+int	push_a(t_list **st, int argc, char **argv)
+{
+	int	i;
+
 	i = 1;
 	while (i < argc)
 	{
-		str = ft_split(argv[i], ' ');
-		j = 0;
-		while (str[j])
-		{
-			new = ft_lstnew(ft_atoi(str[j]));
-			ft_lstadd_back(st, new);
-			j++;
-		}
-		free(str);
+		if (!process_argument(st, argv[i]))
+			return (0);
 		i++;
 	}
+	return (1);
 }

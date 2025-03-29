@@ -6,11 +6,11 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:32:39 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/25 20:34:32 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:16:28 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include.h"
+#include "push_swap.h"
 
 static int	optimaizer(int size)
 {

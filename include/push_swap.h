@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:47:50 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/25 20:27:24 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:10:47 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdlib.h>
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
+# include "libft.h"
+# include "ft_printf.h"
 
 void	print_stack(t_list *st);
-void	push_a(t_list **sta, int argc, char **argv);
+int		push_a(t_list **sta, int argc, char **argv);
 void	pa(t_list **sta, t_list **stb);
 void	pb(t_list **sta, t_list **stb);
 void	rra(t_list **sta);
@@ -39,7 +39,7 @@ void	sort_three(t_list **sta);
 void	sort_five(t_list **sta, t_list **stb);
 void	sort_four(t_list **sta, t_list **stb);
 void	push_swap(t_list **sta, t_list **stb, int size);
-int		check_symbols(int argc, char **argv);
-int		check_stack(t_list *st);
-
+int		check_symbols(char	*str);
+int		check_dublicate(t_list *st);
+void	free_stack(t_list **stack);
 #endif

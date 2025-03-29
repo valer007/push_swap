@@ -6,11 +6,11 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:56:05 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/25 19:57:01 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:54:56 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include.h"
+#include "push_swap.h"
 
 static int	reverse_rotate(t_list **sta)
 {

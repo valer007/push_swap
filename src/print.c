@@ -6,17 +6,17 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:02:54 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/25 20:03:16 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:54:41 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include.h"
+#include "push_swap.h"
 
 void	print_stack(t_list *st)
 {
 	while (st)
 	{
-		ft_printf("%d %d -> ", st->content, st->index);
+		ft_printf("%d -> ", st->content);
 		st = st->prev;
 	}
 	ft_printf("NULL\n");

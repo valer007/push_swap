@@ -6,11 +6,11 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:57:39 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/25 19:58:29 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:54:23 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include.h"
+#include "push_swap.h"
 
 int	find_min(t_list *st)
 {
