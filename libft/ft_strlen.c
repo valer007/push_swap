@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 20:04:48 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 00:07:47 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:57:44 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
-	
+
 	if (!str)
 		return (0);
 	i = 0;

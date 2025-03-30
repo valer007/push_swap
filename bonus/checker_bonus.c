@@ -6,11 +6,24 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:04:33 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 17:40:30 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 21:48:13 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+int	is_sorted(t_list *a)
+{
+	if (!a)
+		return (1);
+	while (a->prev)
+	{
+		if (a->content > a->prev->content)
+			return (0);
+		a = a->prev;
+	}
+	return (1);
+}
 
 int	check_symbols(char *str)
 {
@@ -36,19 +49,21 @@ int	check_symbols(char *str)
 	return (1);
 }
 
-static int ft_strcmp(const char *s1, const char *s2) {
-    while (*s1 && (*s1 == *s2)) {
-        s1++;
-        s2++;
-    }
-    return (unsigned char)(*s1) - (unsigned char)(*s2);
+static int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)(*s1) - (unsigned char)(*s2));
 }
 
-static int check_instr(t_list **a, t_list **b, char *str)
+static int	check_instr(t_list **a, t_list **b, char *str)
 {
 	if (ft_strcmp(str, "sa\n") == 0)
 		return (sa(a), 1);
-	else if (ft_strcmp(str, "sb\n") == 0 )
+	else if (ft_strcmp(str, "sb\n") == 0)
 		return (sb(b), 1);
 	else if (ft_strcmp(str, "ss\n") == 0)
 		return (ss(a, b), 1);
@@ -71,17 +86,18 @@ static int check_instr(t_list **a, t_list **b, char *str)
 	return (0);
 }
 
-void checker_bonus(t_list **a, t_list **b)
+void	checker_bonus(t_list **a, t_list **b)
 {
-	char *str;
-	
+	char	*str;
+
 	while (1)
 	{
 		str = get_next_line(0);
-		if (!str) {
-			break;
+		if (!str)
+		{
+			break ;
 		}
-		if(!check_instr(a, b, str))
+		if (!check_instr(a, b, str))
 		{
 			ft_printf("Error\n");
 			exit(1);

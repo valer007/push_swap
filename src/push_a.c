@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:59:43 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 15:55:46 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:45:57 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,6 @@ int	process_argument(t_list **st, char *arg)
 
 	str = ft_split(arg, ' ');
 	j = 0;
-	// while(str[j]) {
-	// 	ft_printf("%s\n", str[j]);
-	// 	j++;
-	// }
 	if (!str)
 		return (0);
 	j = 0;

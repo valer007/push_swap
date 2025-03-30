@@ -6,18 +6,19 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 20:11:32 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 13:58:23 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 21:44:08 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-#include "libft.h"
-#include "get_next_line.h"
-#include "ft_printf.h"
-#include "get_next_line.h"
+# include "libft.h"
+# include "get_next_line.h"
+# include "ft_printf.h"
+# include "get_next_line.h"
 
+int		is_sorted(t_list *a);
 int		main(int argc, char **argv);
 void	pa(t_list **sta, t_list **stb);
 void	pb(t_list **sta, t_list **stb);

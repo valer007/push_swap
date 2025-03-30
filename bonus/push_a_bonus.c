@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_a_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/30 21:44:47 by vmakarya          #+#    #+#             */
+/*   Updated: 2025/03/30 21:48:36 by vmakarya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 static int	check_zero(char *str)
@@ -49,7 +61,6 @@ static int	check_symbols(char *str)
 	}
 	return (1);
 }
-
 
 static int	process_argument(t_list **st, char *arg)
 {

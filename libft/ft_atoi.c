@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 20:44:57 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/29 22:56:04 by vmakarya         ###   ########.fr       */
+/*   Created: 2025/03/30 18:46:30 by vmakarya          #+#    #+#             */
+/*   Updated: 2025/03/30 18:46:54 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atol(const char *str)
 {
-	int	i;
+	int		i;
 	long	result;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	result = 0;
