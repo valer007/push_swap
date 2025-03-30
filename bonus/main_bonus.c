@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:34:10 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 00:17:23 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 16:23:22 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static int	is_sorted(t_list *a)
 		return (1);
 	while (a->prev)
 	{
+		//ft_printf("%d\n", a->content);
 		if (a->content > a->prev->content)
 			return (0);
 		a = a->prev;
@@ -61,11 +62,11 @@ static int	is_sorted(t_list *a)
 
 void print_msg(t_list *sta, t_list *stb)
 {
-	if (!is_sorted(sta) || stb != NULL)
+	if (is_sorted(sta) || stb != NULL)
 	{
-		ft_printf("KO");
+		ft_printf("KO\n");
 	} else {
-		ft_printf("OK");
+		ft_printf("OK\n");
 	}
 }
 
@@ -89,18 +90,17 @@ int	main(int	argc, char	**argv)
 
 	if (argc < 2 || !check_argv(argc, argv))
 	{
-		ft_printf("Error");
+		ft_printf("Error\n");
 		return 0;
 	}
 	sta = NULL;
 	stb = NULL;
 	if (!push_a_bonus(&sta, argc, argv) || !check_dublicate(sta))
 	{
-		ft_printf("Error");
-		return 0;
+		ft_printf("Error\n");
+		exit(1);
 	}
-	if (!checker_bonus(&sta, &stb))
-		return 0;
+	checker_bonus(&sta, &stb);
 	print_msg(sta, stb);
 	free_stack(&sta);
 	free_stack(&stb);

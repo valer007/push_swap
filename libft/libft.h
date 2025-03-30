@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:37:48 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/29 23:32:14 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 17:33:23 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char		**ft_split(char const *s, char c);
 void		ft_putchar_fd(char c, int fd);
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 char		*ft_strtrim(char const *s1, char const *set);
-char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strdup(const char *s);
 void		*ft_calloc(size_t count, size_t size);

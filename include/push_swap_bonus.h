@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 20:11:32 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/29 23:57:58 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 13:58:23 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	sa(t_list **sta);
 void	sb(t_list **stb);
 void	ss(t_list **sta, t_list **stb);
 int		push_a_bonus(t_list **st, int argc, char **argv);
-int		checker_bonus(t_list **a, t_list **b);
+void	checker_bonus(t_list **a, t_list **b);
 
 #endif

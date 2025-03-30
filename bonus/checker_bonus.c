@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:04:33 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 00:20:19 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 17:40:30 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,14 @@ static int check_instr(t_list **a, t_list **b, char *str)
 {
 	if (ft_strcmp(str, "sa\n") == 0)
 		return (sa(a), 1);
-	else if (ft_strcmp(str, "sb\n") == 0)
+	else if (ft_strcmp(str, "sb\n") == 0 )
 		return (sb(b), 1);
 	else if (ft_strcmp(str, "ss\n") == 0)
 		return (ss(a, b), 1);
+	else if (ft_strcmp(str, "pa\n") == 0)
+		return (pa(a, b), 1);
+	else if (ft_strcmp(str, "pb\n") == 0)
+		return (pb(a, b), 1);
 	else if (ft_strcmp(str, "ra\n") == 0)
 		return (ra(a), 1);
 	else if (ft_strcmp(str, "rb\n") == 0)
@@ -64,27 +68,24 @@ static int check_instr(t_list **a, t_list **b, char *str)
 		return (rrb(b), 1);
 	else if (ft_strcmp(str, "rrr\n") == 0)
 		return (rrr(a, b), 1);
-	else if (ft_strcmp(str, "pa\n") == 0)
-		return (pa(a, b), 1);
-	else if (ft_strcmp(str, "pa\n") == 0)
-		return (pb(a, b), 1);
 	return (0);
 }
 
-int checker_bonus(t_list **a, t_list **b)
+void checker_bonus(t_list **a, t_list **b)
 {
 	char *str;
 	
 	while (1)
 	{
 		str = get_next_line(0);
-		if (!str)
+		if (!str) {
 			break;
+		}
 		if(!check_instr(a, b, str))
 		{
 			ft_printf("Error\n");
-			return (0);
+			exit(1);
 		}
+		free(str);
 	}
-	return (1);
 }
