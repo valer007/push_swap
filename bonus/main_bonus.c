@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:34:10 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 21:47:44 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/31 01:00:47 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ static int	check_dublicate(t_list *a)
 
 static void	print_msg(t_list *sta, t_list *stb)
 {
-	if (is_sorted(sta) || stb != NULL)
+	if (!is_sorted(sta) && stb == NULL)
 		ft_printf("KO\n");
-	else
+	else if (is_sorted(sta) && stb == NULL)
 		ft_printf("OK\n");
 }
 
@@ -74,14 +74,14 @@ int	main(int argc, char **argv)
 
 	if (argc < 2 || !check_argv(argc, argv))
 	{
-		ft_printf("Error\n");
-		return (0);
+		ft_printf("Error3\n");
+		exit(1);
 	}
 	sta = NULL;
 	stb = NULL;
 	if (!push_a_bonus(&sta, argc, argv) || !check_dublicate(sta))
 	{
-		ft_printf("Error\n");
+		ft_printf("Error2\n");
 		exit(1);
 	}
 	checker_bonus(&sta, &stb);

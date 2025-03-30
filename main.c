@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:00:38 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 17:50:22 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/30 22:39:45 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 	}
 	size = get_size(sta);
 	push_swap(&sta, &stb, size);
+	print_stack(sta);
 	free_stack(&sta);
 	free_stack(&stb);
 }

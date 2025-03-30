@@ -6,31 +6,32 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:49:35 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 21:29:44 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/31 00:08:28 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+static char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	len1;
-	size_t	len2;
 	char	*new_str;
 	size_t	i;
 	size_t	j;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	new_str = malloc(len1 + len2 + 1);
-	i = 0;
-	j = 0;
+	if (!s2)
+		return (NULL);
+	new_str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new_str)
 		return (NULL);
+	i = 0;
+	j = 0;
 	if (s1)
 	{
-		while (s1[i++])
+		while (s1[i])
+		{
 			new_str[i] = s1[i];
+			i++;
+		}
 		free(s1);
 	}
 	while (s2[j])
@@ -67,29 +68,27 @@ static char	*foo(char *str)
 static char	*get_line(char *line)
 {
 	int		i;
+	int		len;
 	char	*new_line;
-	int		j;
 
 	i = 0;
 	if (!line)
 		return (NULL);
 	while (line[i] && line[i] != '\n')
 		i++;
+	len = i + 1;
 	if (line[i] == '\n')
-		new_line = malloc(sizeof(char) * (i + 2));
-	else
-		new_line = malloc(sizeof(char) * (i + 1));
+		len++;
+	new_line = malloc(sizeof(char) * len);
 	if (!new_line)
 		return (NULL);
-	j = 0;
-	while (j++ <= i)
+	i = 0;
+	while (i <= len - 2)
 	{
-		new_line[j] = line[j];
+		new_line[i] = line[i];
+		i++;
 	}
-	if (line[i] == '\n')
-		new_line[i + 1] = '\0';
-	else
-		new_line[i] = '\0';
+	new_line[i] = '\0';
 	return (new_line);
 }
 
