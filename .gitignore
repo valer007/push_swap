@@ -1,0 +1,9 @@
+*.o
+*.a
+.vscode
+.DS_Store
+*.out
+push_swap
+checker
+build
+*.swp

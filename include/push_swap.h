@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:47:50 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/28 20:10:47 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:21:27 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ void	push_swap(t_list **sta, t_list **stb, int size);
 int		check_symbols(char	*str);
 int		check_dublicate(t_list *st);
 void	free_stack(t_list **stack);
+
 #endif

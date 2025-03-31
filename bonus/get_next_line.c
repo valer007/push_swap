@@ -6,13 +6,13 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:49:35 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/31 00:08:28 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:10:38 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_strjoin(char *s1, char *s2)
+static char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*new_str;
 	size_t	i;
@@ -114,7 +114,7 @@ char	*get_next_line(int fd)
 		if (bytes_read <= 0)
 			break ;
 		buffer[bytes_read] = '\0';
-		str = ft_strjoin(str, buffer);
+		str = ft_strjoin_free(str, buffer);
 		if (!str)
 			return (NULL);
 	}
