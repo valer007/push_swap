@@ -27,11 +27,11 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "${RED}💻 Compiling Push_Swap...${RESET}"
 	@$(AR) $(NAME) $(OBJ)
-	@echo "${YELLOW}✨ Push_Swap Executable Created 🥑 ${RESET}"
+	@echo "${YELLOW}Ft_printf Created 🥑 ${RESET}"
 
 %.o: %.c
+	@echo "${CYAN}🔨  Compiling $<...${RESET}"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

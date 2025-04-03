@@ -32,7 +32,6 @@ all: build lib $(NAME)
 
 lib:
 	@make -C libft
-	@make bonus -C libft
 	@make -C ft_printf
 
 build:
