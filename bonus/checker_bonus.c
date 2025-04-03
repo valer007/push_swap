@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:04:33 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/31 13:53:47 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/04/03 19:18:05 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	check_instr(t_list **a, t_list **b, char *str)
 	else if (ft_strcmp(str, "pa\n") == 0)
 		return (pa(a, b), 1);
 	else if (ft_strcmp(str, "pb\n") == 0)
-		return (pb(a, b), 1);
+		return (pb(b, a), 1);
 	else if (ft_strcmp(str, "ra\n") == 0)
 		return (ra(a), 1);
 	else if (ft_strcmp(str, "rb\n") == 0)
@@ -94,18 +94,12 @@ void	checker_bonus(t_list **a, t_list **b)
 	{
 		str = get_next_line(0);
 		if (!str)
-		{
 			break ;
-		}
 		if (!check_instr(a, b, str))
 		{
 			ft_printf("Error\n");
 			exit(1);
 		}
 		free(str);
-		if (a && *a && (*a)->prev)
-			*a = (*a)->prev;
-		if (b && *b && (*b)->prev)
-			*b = (*b)->prev;
 	}
 }
