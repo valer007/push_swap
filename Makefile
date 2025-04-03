@@ -4,7 +4,7 @@ BONUS_NAME = checker
 BUILD = build
 INCLUDE = -I./include
 CC = cc
-CFLAGS = -Wall -Wextra -Werror $(INCLUDE) -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror $(INCLUDE)
 LIB = -Llibft -lft -Lft_printf -lftprintf
 
 SRC_DIRS = src

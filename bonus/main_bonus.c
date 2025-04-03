@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:34:10 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/31 01:00:47 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:17:25 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,23 @@
 static int	check_argv(int argc, char **argv)
 {
 	int	i;
+	int	j;
 
 	i = 1;
 	while (i < argc)
 	{
+		j = 0;
 		if (argv[i] == NULL || argv[i][0] == '\0')
 			return (0);
+		while (argv[i][j])
+		{
+			if ((argv[i][j] == '-' && argv[i][j - 1] >= '0'
+					&& argv[i][j - 1] <= '9')
+				|| (argv[i][j] == '+' && argv[i][j - 1] >= '0'
+					&& argv[i][j - 1] <= '9'))
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (1);
@@ -72,16 +83,18 @@ int	main(int argc, char **argv)
 	t_list	*sta;
 	t_list	*stb;
 
-	if (argc < 2 || !check_argv(argc, argv))
+	if (argc < 2)
+		return (0);
+	if (!check_argv(argc, argv))
 	{
-		ft_printf("Error3\n");
+		ft_printf("Error\n");
 		exit(1);
 	}
 	sta = NULL;
 	stb = NULL;
 	if (!push_a_bonus(&sta, argc, argv) || !check_dublicate(sta))
 	{
-		ft_printf("Error2\n");
+		ft_printf("Error\n");
 		exit(1);
 	}
 	checker_bonus(&sta, &stb);

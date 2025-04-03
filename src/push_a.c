@@ -48,21 +48,23 @@ int	process_argument(t_list **st, char *arg)
 	j = 0;
 	if (!str)
 		return (0);
-	j = 0;
-	while (str[j])
+	j = -1;
+	while (str[++j])
 	{
 		if (!check_symbols(str[j]) || !check(ft_atol(str[j]))
 			|| !check_zero(str[j]))
-			return (0);
+		{
+			while (str[j])
+				free(str[j++]);
+			return (free(str), 0);
+		}
 		new = ft_lstnew(ft_atol(str[j]));
 		ft_lstadd_back(st, new);
-		j++;
 	}
 	j = 0;
 	while (str[j])
 		free(str[j++]);
-	free(str);
-	return (1);
+	return (free(str), 1);
 }
 
 int	push_a(t_list **st, int argc, char **argv)

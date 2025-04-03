@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:00:38 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 22:39:45 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:16:03 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,23 @@
 static int	check_argv(int argc, char **argv)
 {
 	int	i;
+	int	j;
 
 	i = 1;
 	while (i < argc)
 	{
+		j = 0;
 		if (argv[i] == NULL || argv[i][0] == '\0')
 			return (0);
+		while (argv[i][j])
+		{
+			if ((argv[i][j] == '-' && argv[i][j - 1] >= '0'
+					&& argv[i][j - 1] <= '9')
+				|| (argv[i][j] == '+' && argv[i][j - 1] >= '0'
+					&& argv[i][j - 1] <= '9'))
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (1);
@@ -32,7 +43,9 @@ int	main(int argc, char **argv)
 	t_list	*stb;
 	int		size;
 
-	if (argc < 2 || !check_argv(argc, argv))
+	if (argc < 2)
+		return (0);
+	if (!check_argv(argc, argv))
 	{
 		ft_printf("Error");
 		exit(0);
@@ -46,7 +59,6 @@ int	main(int argc, char **argv)
 	}
 	size = get_size(sta);
 	push_swap(&sta, &stb, size);
-	print_stack(sta);
 	free_stack(&sta);
 	free_stack(&stb);
 }

@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:04:33 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/31 00:57:42 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:53:47 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	checker_bonus(t_list **a, t_list **b)
 		}
 		if (!check_instr(a, b, str))
 		{
-			ft_printf("Error1\n");
+			ft_printf("Error\n");
 			exit(1);
 		}
 		free(str);
