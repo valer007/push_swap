@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:00:38 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/04/03 14:16:03 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:18:04 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,26 @@ static int	check_argv(int argc, char **argv)
 	return (1);
 }
 
+static int	check_space(int argc, char **argv)
+{
+	int		i;
+	size_t	j;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = 0;
+		while (argv[i][j] && argv[i][j] == ' ')
+		{
+			j++;
+		}
+		if (j == ft_strlens(argv[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*sta;
@@ -45,7 +65,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (!check_argv(argc, argv))
+	if (!check_argv(argc, argv) || !check_space(argc, argv))
 	{
 		ft_printf("Error");
 		exit(0);
