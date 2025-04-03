@@ -6,7 +6,7 @@
 /*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:34:10 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/04/03 14:17:25 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:47:30 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (!check_argv(argc, argv))
+	if (!check_argv(argc, argv) || !check_space(argc, argv))
 	{
 		ft_printf("Error\n");
 		exit(1);

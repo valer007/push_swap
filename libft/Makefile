@@ -13,22 +13,38 @@ BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_ba
 OBJ = $(SRC:.c=.o)
 BONUS_OBJS = $(BONUS_SRC:.c=.o)
 
+	RESET			= \033[0m
+	BLUE			= \033[34m
+	YELLOW			= \033[38;2;255;239;0m
+	APPLE_GREEN		= \033[38;2;141;182;0m
+	PINK			= \033[38;2;255;105;180m
+	RED				= \033[31m
+	CYAN			= \033[38;2;0;255;255m
+	VIOLET			= \033[38;2;138;43;226m
+	GOLD			= \033[38;2;255;215;0m
+	MAGENTA			= \033[38;2;255;0;255m
+
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	@echo "${YELLOW}Libft compiled ✨ ${RESET}"
+	@$(AR) $(NAME) $(OBJ)
 
 bonus: $(BONUS_OBJS)
-	$(AR) $(NAME) $(BONUS_OBJS)
+	@$(AR) $(NAME) $(BONUS_OBJS)
 
 %.o: %.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "${CYAN}🔨 Compiling $<${RESET}"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ) $(BONUS_OBJS)
+	@echo "${RED}🧹 Removing Object Files...${RESET}"
+	@$(RM) $(OBJ) $(BONUS_OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@echo "${RED}🧹 Removing ${NAME} ${RESET}"
+	@$(RM) $(NAME)
 
 re: fclean all
 

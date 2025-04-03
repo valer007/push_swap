@@ -13,7 +13,7 @@ SRC_FILES = checker.c free_stack.c print.c push_a.c reverse_rotate.c \
 OBJS = $(patsubst %.c, $(BUILD)/%.o, $(SRC_FILES))
 
 BONUS_DIR = bonus
-BONUS_FILES = checker_bonus.c main_bonus.c push_bonus.c rotate_bonus.c \
+BONUS_FILES = checker_bonus.c main_bonus.c push_bonus.c rotate_bonus.c check_space.c\
 				get_next_line.c push_a_bonus.c  reverse_rotate_bonus.c  swap_bonus.c
 BONUS_OBJ = $(patsubst %.c, $(BUILD)/%.o, $(BONUS_FILES))
 
@@ -31,45 +31,45 @@ MAGENTA			= \033[38;2;255;0;255m
 all: build lib $(NAME)
 
 lib:
-	make -C libft
-	make bonus -C libft
-	make -C ft_printf
+	@make -C libft
+	@make bonus -C libft
+	@make -C ft_printf
 
 build:
-	mkdir -p $(BUILD)
+	@mkdir -p $(BUILD)
 
 bonus: build lib $(BONUS_NAME)
 
 $(BONUS_NAME): $(BONUS_OBJ)
 	@echo "${VIOLET}💻 Compiling Checker...${RESET}"
-	$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIB) -o $(BONUS_NAME)
+	@$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIB) -o $(BONUS_NAME)
 	@echo "${YELLOW}✨ Checker Executable Created 🥑 ${RESET}"
 
 $(NAME): $(OBJS)
 	@echo "${PINK}💻 Compiling Push_Swap...${RESET}"
-	$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
 	@echo "${YELLOW}✨ Push_Swap Executable Created 🥑 ${RESET}"
 
 $(BUILD)/%.o: $(SRC_DIRS)/%.c
 	@echo "${CYAN}🔨  Compiling $<...${RESET}"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 
 $(BUILD)/%.o: $(BONUS_DIR)/%.c
-	@echo "${PINK}🔨  Compiling $<...${RESET}"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "${RED}🔨  Compiling $<...${RESET}"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "${RED}🧹 Removing Object Files...${RESET}"
-	make clean -C libft
-	make clean -C ft_printf
-	rm -rf $(BUILD)
+	@make clean -C libft
+	@make clean -C ft_printf
+	@rm -rf $(BUILD)
 
 fclean: clean
 	@echo "${RED}🔥 Removing Executable Files...${RESET}"
-	make fclean -C libft
-	make fclean -C ft_printf
-	rm -f $(NAME) $(BONUS_NAME)
+	@make fclean -C libft
+	@make fclean -C ft_printf
+	@rm -f $(NAME) $(BONUS_NAME)
 	@echo "${GOLD}✨ All Executables Removed! Everything is Clean! ✅ ${RESET}"
 	
 re: fclean all
