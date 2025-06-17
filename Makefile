@@ -1,6 +1,6 @@
 NAME = push_swap
 BONUS_NAME = checker
-
+MAKEFLAGS = --no-print-directory
 BUILD = build
 INCLUDE = -I./include
 CC = cc
@@ -14,7 +14,7 @@ OBJS = $(patsubst %.c, $(BUILD)/%.o, $(SRC_FILES))
 
 BONUS_DIR = bonus
 BONUS_FILES = checker_bonus.c main_bonus.c push_bonus.c rotate_bonus.c check_space.c\
-				get_next_line.c push_a_bonus.c  reverse_rotate_bonus.c  swap_bonus.c
+				get_next_line.c push_a_bonus.c  reverse_rotate_bonus.c  swap_bonus.c free_stack_bonus.c
 BONUS_OBJ = $(patsubst %.c, $(BUILD)/%.o, $(BONUS_FILES))
 
 RESET			= \033[0m

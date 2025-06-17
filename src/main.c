@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vmakarya <vmakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:00:38 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/04/03 15:18:04 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/06/17 13:59:43 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 	if (!check_argv(argc, argv) || !check_space(argc, argv))
 	{
 		ft_printf("Error");
+		ft_putstr_fd("Error\n", 2);
 		exit(0);
 	}
 	sta = NULL;
@@ -75,6 +76,7 @@ int	main(int argc, char **argv)
 	if (!push_a(&sta, argc, argv) || !check_dublicate(sta))
 	{
 		ft_printf("Error");
+		free_stack(&sta);
 		exit(0);
 	}
 	size = get_size(sta);

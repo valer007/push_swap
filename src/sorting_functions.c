@@ -3,40 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_functions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vmakarya <vmakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:30:36 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/27 16:55:04 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/06/17 12:19:45 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_list **st)
+void	sort_three(t_list **stack)
 {
 	int	first;
 	int	second;
 	int	third;
 
-	first = (*st)->content;
-	second = (*st)->prev->content;
-	third = (*st)->prev->prev->content;
+	first = (*stack)->content;
+	second = (*stack)->prev->content;
+	third = (*stack)->prev->prev->content;
 	if (first > second && second < third && first < third)
-		sa(st);
+		sa(stack);
 	else if (first > second && second > third)
 	{
-		sa(st);
-		rra(st);
+		sa(stack);
+		rra(stack);
 	}
-	else if (first > second && first > third)
-		ra(st);
-	else if (first < second && second > third && first < third)
+	else if (first < second && second > third && first > third)
+		rra(stack);
+	else if (first > second && first > third && second < third)
+		ra(stack);
+	else if (second > third && third > first && second > first)
 	{
-		sa(st);
-		ra(st);
+		rra(stack);
+		sa(stack);
 	}
-	else if (first < second && second > third)
-		rra(st);
 }
 
 void	sort_four(t_list **a, t_list **b)
@@ -60,8 +60,12 @@ void	sort_five(t_list **a, t_list **b)
 	while (i--)
 	{
 		min_pos = get_position((*a), find_min((*a)));
-		while (min_pos--)
-			ra(a);
+		if (min_pos <= ft_lstsize(*a) / 2)
+			while (min_pos--)
+				ra(a);
+		else
+			while (min_pos++ < ft_lstsize(*a))
+				rra(a);
 		pb(b, a);
 	}
 	sort_three(a);

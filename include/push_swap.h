@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vmakarya <vmakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:47:50 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/31 13:21:27 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/06/13 21:22:45 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft.h"
 # include "ft_printf.h"
 
+void	free_string(char **str);
 void	print_stack(t_list *st);
 int		push_a(t_list **sta, int argc, char **argv);
 void	pa(t_list **sta, t_list **stb);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vmakarya <vmakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:59:43 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 18:45:57 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/06/13 20:52:41 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	check(long num)
 	return (1);
 }
 
-int	process_argument(t_list **st, char *arg)
+static int	process_argument(t_list **st, char *arg)
 {
 	int		j;
 	char	**str;
@@ -54,17 +54,15 @@ int	process_argument(t_list **st, char *arg)
 		if (!check_symbols(str[j]) || !check(ft_atol(str[j]))
 			|| !check_zero(str[j]))
 		{
-			while (str[j])
-				free(str[j++]);
-			return (free(str), 0);
+			free_stack(st);
+			return (free_string(str), 0);
 		}
 		new = ft_lstnew(ft_atol(str[j]));
 		ft_lstadd_back(st, new);
 	}
 	j = 0;
-	while (str[j])
-		free(str[j++]);
-	return (free(str), 1);
+	free_string(str);
+	return (1);
 }
 
 int	push_a(t_list **st, int argc, char **argv)

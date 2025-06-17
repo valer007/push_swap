@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vmakarya <vmakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:04:33 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/04/03 19:18:05 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:51:19 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,10 @@ void	checker_bonus(t_list **a, t_list **b)
 		if (!check_instr(a, b, str))
 		{
 			ft_printf("Error\n");
+			free(str);
+			get_next_line(-1);
+			free_stack(a);
+			free_stack(b);
 			exit(1);
 		}
 		free(str);

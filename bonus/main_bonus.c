@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vmakarya <vmakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:34:10 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/04/03 16:47:30 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:41:03 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	check_argv(int argc, char **argv)
 	return (1);
 }
 
-static int	check_dublicate(t_list *a)
+int	check_dublicate(t_list *a)
 {
 	t_list	*temp;
 	t_list	*node;
@@ -65,19 +65,6 @@ static void	print_msg(t_list *sta, t_list *stb)
 		ft_printf("OK\n");
 }
 
-static void	free_stack(t_list **stack)
-{
-	t_list	*temp;
-
-	temp = NULL;
-	while ((*stack))
-	{
-		temp = *stack;
-		*stack = (*stack)->prev;
-		free(temp);
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*sta;
@@ -95,6 +82,7 @@ int	main(int argc, char **argv)
 	if (!push_a_bonus(&sta, argc, argv) || !check_dublicate(sta))
 	{
 		ft_printf("Error\n");
+		free_stack(&sta);
 		exit(1);
 	}
 	checker_bonus(&sta, &stb);

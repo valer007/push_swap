@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_a_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vmakarya <vmakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/30 21:44:47 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/30 21:48:36 by vmakarya         ###   ########.fr       */
+/*   Created: 2025/03/25 19:59:43 by vmakarya          #+#    #+#             */
+/*   Updated: 2025/06/13 21:13:17 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,34 +31,10 @@ static int	check_zero(char *str)
 	return (1);
 }
 
-int	check(long num)
+static int	check(long num)
 {
 	if (num > 2147483647 || num < -2147483648)
 		return (0);
-	return (1);
-}
-
-static int	check_symbols(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-	{
-		if ((str[i] >= '0' && str[i] <= '9')
-			|| ((str[i] == '-' || str[i] == '+')
-				&& (str[i + 1] != '-' && str[i + 1] != '+')))
-		{
-			if ((str[i] == '-' && str[i + 1] == '-')
-				|| (str[i] == '+' && str[i + 1] == '+'))
-				return (0);
-		}
-		else
-			return (0);
-		i++;
-	}
 	return (1);
 }
 
@@ -69,22 +45,23 @@ static int	process_argument(t_list **st, char *arg)
 	t_list	*new;
 
 	str = ft_split(arg, ' ');
+	j = 0;
 	if (!str)
 		return (0);
-	j = 0;
-	while (str[j])
+	j = -1;
+	while (str[++j])
 	{
 		if (!check_symbols(str[j]) || !check(ft_atol(str[j]))
 			|| !check_zero(str[j]))
-			return (0);
+		{
+			free_stack(st);
+			return (free_string(str), 0);
+		}
 		new = ft_lstnew(ft_atol(str[j]));
 		ft_lstadd_back(st, new);
-		j++;
 	}
 	j = 0;
-	while (str[j])
-		free(str[j++]);
-	free(str);
+	free_string(str);
 	return (1);
 }
 

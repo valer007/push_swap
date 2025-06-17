@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmakarya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vmakarya <vmakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:49:35 by vmakarya          #+#    #+#             */
-/*   Updated: 2025/03/31 13:10:38 by vmakarya         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:51:04 by vmakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ char	*get_next_line(int fd)
 	char		buffer[BUFFER_SIZE + 1];
 	int			bytes_read;
 
+	if (fd == -1)
+		free(str);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	while (!ft_strchr(str, '\n'))
